@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Popup</title>
+    <style>
+    * {
+            box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        width: 50rem;
+        height: 50rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f7f7f7;
+    }
+
+    .header {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 3rem;
+        padding: 1rem;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .close-btn {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .close-btn:hover {
+        text-decoration: underline;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        max-width: 40rem;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        padding: 0.8rem 1.2rem;
+        margin: 1rem 0.5rem;
+        font-size: 1rem;
+        transition: background-color 0.2s ease;
+    }
+
+    .button:hover {
+        background-color: #555;
+    }
+
+    .captured-elements {
+        display: flex;
+        flex-direction: column;
+        max-height: 20rem;
+        overflow-y: auto;
+        margin-top: 1rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .captured-element {
+        padding: 1rem;
+        background-color: #eee;
+        border-radius: 0.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .captured-element .title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .captured-element .content {
+        font-size: 1rem;
+        white-space: pre-wrap;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+
+    .captured-element .timestamp {
+        font-size: 0.8rem;
+        color: #999;
+    }
+
+    #captured-elements-container {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    #manual-prompt-container {
+        margin-top: 1rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title">Popup</div>
+        <button class="close-btn">X</button>
+    </div>
+    <div class="content">
+        <button id="capture-btn" class="button">Capture Element</button>
+        <button id="show-captured-elements-btn" class="button">Show Captured Elements</button>
+        <button id="generate-btn" class="button">Generate Text</button>
+        <div id="captured-elements-container" style="display: none;">
+            <ul id="captured-elements-list" class="captured-elements"></ul>
+            <div>
+                <button id="clear-captured-elements-btn" class="button">Clear Captured Elements</button>
+                <button id="hide-captured-elements-btn" class="button">Hide Captured Elements</button>
+            </div>
+        </div>
+        <div id="manual-prompt-container"></div>
+    </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
